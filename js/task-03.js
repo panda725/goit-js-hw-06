@@ -1,10 +1,4 @@
-// Напиши скрипт для создания галереи изображений по массиву данных. В HTML есть список ul.gallery.
-
-// Все элементы галереи должны добавляться в DOM за одну операцию вставки.
-// Добавь минимальное оформление галереи флексбоксами или гридами через CSS классы.
 const galleryEl = document.querySelector('.gallery');
-console.log(galleryEl);
-
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -20,9 +14,15 @@ const images = [
   },
 ];
 
-// Используй массив объектов images для создания элементов <img> вложенных в <li>. Для создания разметки используй шаблонные строки и метод insertAdjacentHTML().
-const addMarkup = images.map(
-  ({ url, alt }) =>
-    `<li class="gallary__item"><img src="${url}" alt="${alt}" width = "150" height = "150"</li>`
-);
-// <img src="" alt="" />
+const addMarkup = images
+  .map(
+    ({ url, alt }) =>
+      `<li class="gallary__item"><img src="${url}" alt="${alt}" width = "150" height = "160" display:block</li>`
+  )
+  .join('');
+
+galleryEl.insertAdjacentHTML('afterbegin', addMarkup);
+galleryEl.style.maxWidth = '600px';
+galleryEl.style.display = 'flex';
+galleryEl.style.justifyContent = 'space-between';
+galleryEl.style.listStyle = 'none';
