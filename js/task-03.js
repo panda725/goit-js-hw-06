@@ -17,7 +17,8 @@ const images = [
 const addMarkup = images
   .map(
     ({ url, alt }) =>
-      `<li class="gallary__item"><img src="${url}" alt="${alt}" width = "150" height = "160" display:block</li>`
+      `<li class="gallary__item">
+      <img src="${url}" alt="${alt}" width = "150" height = "160" display:block</li>`
   )
   .join('');
 
