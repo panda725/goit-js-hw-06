@@ -5,10 +5,10 @@
 // Для добавления стилей, используй CSS-классы valid и invalid, которые мы уже добавили в исходные файлы задания.
 
 const textInput = document.querySelector('#validation-input');
-const dataLength = textInput.getAttribute('data-length');
+const dataLength = textInput.dataset.length;
 
 textInput.addEventListener('blur', event => {
-  if (event.currentTarget.value.length == dataLength) {
+  if (event.currentTarget.value.length === Number(dataLength)) {
     return replaceClass('valid', 'invalid');
   }
   replaceClass('invalid', 'valid');
