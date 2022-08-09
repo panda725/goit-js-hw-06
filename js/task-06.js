@@ -9,9 +9,12 @@ const dataLength = textInput.getAttribute('data-length');
 
 textInput.addEventListener('blur', event => {
   if (event.currentTarget.value.length == dataLength) {
-    textInput.classList.add('valid');
-    textInput.classList.remove('invalid');
-  } else {
-    textInput.classList.add('invalid');
+    return replaceClass('valid', 'invalid');
   }
+  replaceClass('invalid', 'valid');
 });
+
+function replaceClass(add, remove) {
+  textInput.classList.add(add);
+  textInput.classList.remove(remove);
+}
